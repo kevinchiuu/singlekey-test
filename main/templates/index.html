@@ -12,36 +12,82 @@
     </nav>
   </div>
 
-  <h3 style="bold"> Submit information </h3>
+  <div class="container">
+    <h3> <b> Submit information </b> </h3>
+    <div class="row flex-column-reverse flex-md-row">
+      <div class="col-8 ">
+        <form method='POST'>
+          <div class="form-group mt-3">
+            <label for="exampleFormControlInput1"> Applicant name </label>
+            <input type="email" class="form-control form-control-lg" id="exampleFormControlInput1" placeholder="Applicant name">
+          </div>
+          <div class="form-group mt-3">
+            <label for="exampleFormControlInput1"> Email address </label>
+            <input type="email" class="form-control form-control-lg" id="exampleFormControlInput1" placeholder="Email address">
+          </div>
+          <br>
+          <br>
+          {% csrf_token %}
+          <div>
+            <button type='supmit' class='btn btn-secondary'> Submit </button>
+          </div>
+        </form>
 
-  <form method='POST'>
-    <div class='row mt-3'>
-      <div class='col'>
-        <label>Name</label><br>
-        <input name='name'>
-      </div>
-      <div class='col'>
-        <label>Email</label><br>
-        <input name='email'>
-      </div>
-    </div>
-    <br>
-    <br>
-    {% csrf_token %}
-    <div class='text-center'>
-      <button type='supmit' class='btn btn-primary'>Submit</button>
-    </div>
-  </form>
-  {% if results %}
-  <div class='w-100 text-center mt-5'>
-    <h3> Submissions</h3>
-      {% for i in results %}
-        <div class='text-left mb-3 p-4 card'>
-          <b>{{ i.name }}</b><br>
-          <b>{{ i.email }}</b>
+        <hr>
+
+        {% if results %}
+        <div class='w-100 text-center mt-5'>
+          <h3> Submissions </h3>
+            {% for i in results %}
+              <div class='text-left mb-3 p-4 results-card'>
+                <b>{{ i.name }}</b><br>
+                <b>{{ i.email }}</b>
+              </div>
+            {% endfor %}
+          {% endif %}
         </div>
-      {% endfor %}
-    {% endif %}
+
+        {% if results %}
+            <h3> <b> Submissions </b> </h3>
+              <table class="table text-center">
+                <thead>
+                  <tr>
+                    <th scope="col"> Applicant </th>
+                    <th scope="col"> Email </th>
+                    <th scope="col"> Status </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {% for i in results %}
+                    <tr> 
+                      <td> <b> {{ i.name }} </b> </td>
+                      <td> {{ i.email }} </td>
+                      <td> {{ i.status }} </td>
+                    </tr>
+                  {% endfor %}
+                </tbody>
+              </table>
+        {% endif %}
+      </div>
+
+      <div class="col-4">
+        <div class="card gradient mt-5" style="width: 18rem;">
+          <div class="card-body">
+            <h5 class="card-title white-text"> Hello Alex </h5>
+            <p class="card-text white-text"> Here is a quick summary of your activity so far. If you have any questions about your report feel free to book a call with us. </p>
+            <button type="button" class=""> Book a call </button>
+          </div>
+        </div>
+
+        <div class="card mt-5" style="width: 18rem;">
+          <div class="card-body">
+            <h5 class="card-title white-text"> Hello Alex </h5>
+            <p class="card-text white-text"> Here is a quick summary of your activity so far. If you have any questions about your report feel free to book a call with us. </p>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
+
 </div>
 {% endblock %}
