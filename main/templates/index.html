@@ -15,7 +15,7 @@
   <div class="container">
     <h3> <b> Submit information </b> </h3>
     <div class="row flex-column-reverse flex-md-row">
-      <div class="col-8 ">
+      <div class="col-sm-8">
         <form method='POST'>
           <div class="form-group mt-3">
             <label for="exampleFormControlInput1"> <b> Applicant name </b> </label>
@@ -49,7 +49,7 @@
         </div>
 
         {% if results %}
-          <div class="w-100 results-card mt-5 d-none d-md-flex">
+          <div class="w-100 results-card rounded-top mt-5 d-none d-md-flex">
               <table class="table text-center">
                 <thead>
                   <tr>
@@ -62,8 +62,8 @@
                   {% for i in results %}
                     <tr> 
                       <td> <b> {{ i.name }} </b> </td>
-                      <td> {{ i.email }} </td>
-                      <td> {{ i.status }} </td>
+                      <td> <b> {{ i.email }} </b> </td>
+                      <td> <b> {{ i.status }} </b> </td>
                     </tr>
                   {% endfor %}
                 </tbody>
@@ -72,7 +72,7 @@
         {% endif %}
       </div>
 
-      <div class="col-4">
+      <div class="col-6 col-sm-4">
         <div class="card selection gradient mt-5" style="width: 18rem;">
           <div class="card-body">
             <h5 class="card-title white-text"> Hello Alex </h5>

@@ -11,10 +11,10 @@ def index(request):
     return render(request, 'thanks.html', context)
   context = {
     'results': [
-      {'name': 'Arnel Robbin', 'email': 'arnel.robin@gmail.com', 'status': 'submitted'},
-      {'name': 'Rodriguez Sam Neiol', 'email': 'rodriguze@gmail.com', 'status': 'submitted'},
-      {'name': 'Mari Gotze', 'email': 'mario.gotze23@gmail.com', 'status': 'submitted'},
-      {'name': 'Omar Yussuf', 'email': 'omar.ysuf12@yahoo.com', 'status': 'submitted'}
+      {'name': 'Arnel Robbin', 'email': 'arnel.robin@gmail.com', 'status': 'Submitted'},
+      {'name': 'Rodriguez Sam Neiol', 'email': 'rodriguze@gmail.com', 'status': 'Submitted'},
+      {'name': 'Mari Gotze', 'email': 'mario.gotze23@gmail.com', 'status': 'Submitted'},
+      {'name': 'Omar Yussuf', 'email': 'omar.ysuf12@yahoo.com', 'status': 'Submitted'}
     ]
   }
   return render(request, 'index.html', context)
